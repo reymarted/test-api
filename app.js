@@ -13,7 +13,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 
-app.get('/api/persons',(req, res)=>{
+app.get('/',(req, res)=>{
     Person.find()
         .then(results => {
             const newResults = results.map((results)=>{
@@ -27,7 +27,7 @@ app.get('/api/persons',(req, res)=>{
         })  
 })
 
-app.get('/api/persons/:id', (req, res)=>{
+app.get('/:id', (req, res)=>{
     let id = req.params.id;
     Person.findById(id)
     .then(results => res.json(results))
